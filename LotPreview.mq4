@@ -211,18 +211,19 @@ void func()
          price_=price__;
         }
    ObjectMove(0,"lotpreview_entry_line",0,0,price_);
-   
-   if(direction_ == 1)
+   if(lot_ != 0)
      {
-       sl__ = price_ - (sl_/((MarketInfo(Symbol(),MODE_LOTSIZE))*lot_));
-       tp__ = price_ + (tp_/((MarketInfo(Symbol(),MODE_LOTSIZE))*lot_));
-     }else if(direction_ == 2)
-             {
-       sl__ = price_ + (sl_/((MarketInfo(Symbol(),MODE_LOTSIZE))*lot_));
-       tp__ = price_ - (tp_/((MarketInfo(Symbol(),MODE_LOTSIZE))*lot_));
-             }
-
-      ObjectMove(0,"lotpreview_sl_line",0,0,sl__);
-      ObjectMove(0,"lotpreview_tp_line",0,0,tp__);
-
+      if(direction_ == 1)
+        {
+          sl__ = price_ - (sl_/((MarketInfo(Symbol(),MODE_LOTSIZE))*lot_));
+          tp__ = price_ + (tp_/((MarketInfo(Symbol(),MODE_LOTSIZE))*lot_));
+        }else if(direction_ == 2)
+                {
+          sl__ = price_ + (sl_/((MarketInfo(Symbol(),MODE_LOTSIZE))*lot_));
+          tp__ = price_ - (tp_/((MarketInfo(Symbol(),MODE_LOTSIZE))*lot_));
+                }
+   
+         ObjectMove(0,"lotpreview_sl_line",0,0,sl__);
+         ObjectMove(0,"lotpreview_tp_line",0,0,tp__);      
+     }
 }
